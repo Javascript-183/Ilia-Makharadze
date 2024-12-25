@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #showButton{
+            display: block;
+            margin: 20px auto; 
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 2px solid #333;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: transform 0.5s ease; 
+        }
+        #hideButton{
+            display: block;
+            margin: 20px auto; 
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 2px solid #333;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: transform 0.5s ease; 
+        }
+       
+    </style>
+</head>
+<body>
+    <div id="content">
+
+        <p id="lorem">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Qui cum molestiae adipisci sit eveniet odit sed consectetur magni 
+            mollitia minima quia, earum maxime consequuntur molestias? Quos
+            temporibus explicabo maiores velit?
+        </p>
+        <button type="button" id="redColor" onclick="changeToRed()">Change To Red</button >
+            <button type="button" id="blueColor" onclick="changeToBlue()">Change To Blue</button>
+            <button type="button" id="blackColor" onclick="changeToBlack()">Change To Black</button>
+            <h1></h1>
+        </div>
+    
+    <div class="showHideButton">
+
+        <button type="button" id="showButton" onclick="showContent()">show content</button>
+        <button type="button" id="hideButton" onclick="hideContent()">hide content</button>
+    </div>
+    
+    <script>
+        function changeToRed(){
+            let changeToRed=document.getElementById("lorem");
+            changeToRed.style.color='red';
+        }
+        function changeToBlue(){
+            let changeToBlue=document.getElementById("lorem");
+            changeToBlue.style.color='blue';
+        }
+        function changeToBlack(){
+            let changeToBlack=document.getElementById("lorem");
+            changeToBlack.style.color='black';
+        }
+        function showContent(){
+            let content=document.getElementById("content");
+            content.style.display="block";
+
+         
+       
+        }
+        function hideContent(){
+            let content=document.getElementById("content");
+            content.style.display="none";
+
+
+        }
+    </script>
+</body>
+</html>
