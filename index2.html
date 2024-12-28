@@ -4,79 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        #showButton{
-            display: block;
-            margin: 20px auto; 
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border: 2px solid #333;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-            transition: transform 0.5s ease; 
-        }
-        #hideButton{
-            display: block;
-            margin: 20px auto; 
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border: 2px solid #333;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-            transition: transform 0.5s ease; 
-        }
-       
-    </style>
 </head>
 <body>
-    <div id="content">
+    <div class="container">
+        <h1>This is a heading</h1>
+          <p>Veggies es <span class="alert">bonus vobis</span>, proinde vos postulo <span class="alert stop">essum magis</span> kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.</p>
+          <h2 id="special">A level 2 heading</h2>
+          <p>Gumbo beet greens corn soko endive gumbo gourd.</p>
+          <h2>Another level 2 heading</h2>
+          <p><span class="alert go">Parsley shallot</span> courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.</p>
+      </div>
+      
+      
+<script>
+    document.getElementById("special").style.backgroundColor='yellow';
+    // document.querySelector(".alert").style.border="1px solid gray"
+    const alertElements = document.querySelectorAll('.alert');
 
-        <p id="lorem">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Qui cum molestiae adipisci sit eveniet odit sed consectetur magni 
-            mollitia minima quia, earum maxime consequuntur molestias? Quos
-            temporibus explicabo maiores velit?
-        </p>
-        <button type="button" id="redColor" onclick="changeToRed()">Change To Red</button >
-            <button type="button" id="blueColor" onclick="changeToBlue()">Change To Blue</button>
-            <button type="button" id="blackColor" onclick="changeToBlack()">Change To Black</button>
-            <h1></h1>
-        </div>
-    
-    <div class="showHideButton">
+// Apply a 1px gray border to each element with the 'alert' class
+// alertElements.forEach(function(element) {
+//     element.style.border = '1px solid gray';
+// })
+    for(let i=0;i<alertElements.length;i++){
+        alertElements[i].style.border="1px solid gray";
 
-        <button type="button" id="showButton" onclick="showContent()">show content</button>
-        <button type="button" id="hideButton" onclick="hideContent()">hide content</button>
-    </div>
-    
-    <script>
-        function changeToRed(){
-            let changeToRed=document.getElementById("lorem");
-            changeToRed.style.color='red';
+        if(alertElements[i].classList.contains("stop")){
+            alertElements[i].style.backgroundColor='red';
         }
-        function changeToBlue(){
-            let changeToBlue=document.getElementById("lorem");
-            changeToBlue.style.color='blue';
+        if(alertElements[i].classList.contains("go")){
+            alertElements[i].style.backgroundColor="green";
         }
-        function changeToBlack(){
-            let changeToBlack=document.getElementById("lorem");
-            changeToBlack.style.color='black';
-        }
-        function showContent(){
-            let content=document.getElementById("content");
-            content.style.display="block";
-
-         
-       
-        }
-        function hideContent(){
-            let content=document.getElementById("content");
-            content.style.display="none";
-
-
-        }
-    </script>
+    }
+</script>      
 </body>
 </html>
