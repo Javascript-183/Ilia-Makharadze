@@ -3,22 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather app</title>
+    <style>
+        p {
+            text-align: center;
+        }
+        .s3 {
+            display: flex;
+            justify-content: space-between;
+        }
+        .s1 {
+            width: 45%; /* Left section width */
+        }
+        .s2 {
+            width: 45%; /* Right section width */
+        }
+      
+    </style>
 </head>
 <body>
-    
-<div class="container">
-    <h1 id="ss">This is a heading</h1>
-    <p>Veggies es <span>bonus vobis</span>, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.</p>
-    <h2>A level 2 heading</h2>
-    <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.</p>
-  </div>
-  
-  <script>
-    document.querySelector(".container h1").style.color='blue';
-    document.querySelector(".container h2").style.backgroundColor='blue';
-    document.querySelector(".container h2").style.color='white';
-    document.querySelector(".container span").style.fontSize='200%';
-  </script>
+    <p>Enter longitude and latitude or city to print data</p>
+    <div class="s3">
+        <div class="s1">
+            <input type="text" placeholder="Enter longitude" id="longitude">
+            <br><br>
+            <input type="text" placeholder="Enter latitude" id="latitude">
+            <br><br>
+            <button onclick="weatherConverter()" id="result">Submit</button>
+        </div>
+
+        <div class="s2">
+            <input type="text" placeholder="Enter city" id="city">
+            <button onclick="searchWeatherByCity()" id="rame">Submit</button>
+        </div>
+    </div>
+    <div id="imageContainer"></div>
+    <script type="module" src="weatherApp.js"></script>
 </body>
 </html>
