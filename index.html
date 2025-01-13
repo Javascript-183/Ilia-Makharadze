@@ -6,19 +6,116 @@
     <title>Document</title>
 </head>
 <body>
-    
-<div class="container">
-    <h1 id="ss">This is a heading</h1>
-    <p>Veggies es <span>bonus vobis</span>, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.</p>
-    <h2>A level 2 heading</h2>
-    <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.</p>
-  </div>
-  
-  <script>
-    document.querySelector(".container h1").style.color='blue';
-    document.querySelector(".container h2").style.backgroundColor='blue';
-    document.querySelector(".container h2").style.color='white';
-    document.querySelector(".container span").style.fontSize='200%';
-  </script>
+    <div class="association">
+
+        <div class="add1">
+            
+            <input id="usrInp" placeholder="Enter your task">
+            <button type="submit" onclick="todoBtn()">Add</button>
+        </div>
+        <div class="delete">
+            <input placeholder="Enter ur task for delete data" id="usrDeleteInp" >
+            <button type="submit" onclick="deleteTodo()">Delete from screen and localStorage</button>
+        </div>
+    </div>
+<style>
+    .association{
+        display: flex;
+        gap: 100px;
+    }
+    body{
+        background-color:#f1c40f ;
+    }
+</style>
+    <script>
+        function todoBtn() {
+            let usrInp = document.getElementById("usrInp").value.trim();
+
+            if (usrInp === '') {
+                alert('Input must be a valid string')
+            } else {
+                let todoData = localStorage.getItem("todoList");
+
+                if (todoData === null) {
+                    let data = [];
+                    data.push(usrInp);
+
+                    localStorage.setItem('todoList', JSON.stringify(data))
+
+                } else if (todoData !== null) {
+                    todoData = JSON.parse(todoData); // მონაცემები რახან ინახებოდა სტრიქონულ ფორმატში მოვახდინე მისი JSON ფორმატში კონვერტირება
+
+                    todoData.push(usrInp)
+
+                    localStorage.setItem('todoList', JSON.stringify(todoData))
+                }
+
+                loadTodo()
+                document.getElementById("usrInp").value = '';//ინფუთის ველის გასასუფთავებლად ფუნქციის გამოძახების მერე
+            }
+        }
+
+        function loadTodo() {
+            let todoData = localStorage.getItem("todoList");
+            todoData = JSON.parse(todoData);
+            let exsistingList = document.querySelector('ul');
+            if (exsistingList) {
+                exsistingList.remove();
+            }
+
+
+            let res = document.createElement('ul')
+                    
+            let li = todoData.map(data => {
+                return `<li> ${data} </li>`
+            })
+           
+
+            li = li.join(' '); // მასივი გადავაკონვერტირეთ სტრიქონად
+
+            res.innerHTML = li;
+
+            document.body.appendChild(res);
+        }
+        function deleteTodo(){
+           
+            let usrDeleteInp=document.getElementById("usrDeleteInp").value.trim();
+            if(usrDeleteInp===''){
+                alert(`please enter a valid task to delete`);
+                return;
+            }
+            let todoData=localStorage.getItem("todoList");
+            if(!todoData){
+                alert(`task is not avaliable`);
+                return;
+            }
+
+            todoData=JSON.parse(todoData);
+            const taskIndex = todoData.indexOf(usrDeleteInp);
+            
+            if(taskIndex>-1){
+                todoData.splice(taskIndex,1);// წაშლა ელემენტის
+                localStorage.setItem('todoList',JSON.stringify(todoData));
+                loadTodo();
+                document.getElementById("usrDeleteInp").value='';
+            }else{
+                alert('Task not found');
+            }
+
+
+            // let todoData=localStorage.getItem("todoList");
+            // if(!todoData){
+            //     alert(`no appropriate task to delete`);
+            //     return;
+            // }
+            // if(usrDeleteInp===usrInp){
+                
+            // }
+           
+            
+        }
+
+        loadTodo()
+    </script>
 </body>
 </html>
