@@ -1,43 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather app</title>
-    <style>
-        p {
-            text-align: center;
+<html>
+    <head>
+        <style>
+            input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
         }
-        .s3 {
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        input::placeholder {
+            color: #aaa;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); 
+        }
+
+        div {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            width: 200px;
+            justify-content: center;
+            align-items: center;
         }
-        .s1 {
-            width: 45%; /* Left section width */
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .s2 {
-            width: 45%; /* Right section width */
-        }
-      
-    </style>
-</head>
-<body>
-    <p>Enter longitude and latitude or city to print data</p>
-    <div class="s3">
-        <div class="s1">
-            <input type="text" placeholder="Enter longitude" id="longitude">
-            <br><br>
-            <input type="text" placeholder="Enter latitude" id="latitude">
-            <br><br>
-            <button onclick="weatherConverter()" id="result">Submit</button>
+
+
+        </style>
+    </head>
+    <body>
+        <div>
+            <input placeholder="Enter your username" id="username">
+            <br>
+            <br>
+            <input id="email" placeholder="Enter your email">
+            <br>
+            <br>
+            <input placeholder="Enter your password" id="password">
+            <br>
+            <br>
+            <input placeholder="Enter address" id="address">
+            <br>
+            <br>
+            <input placeholder="Enter ur phone number" id="phoneNumber">
+            <br>
+            <br>
+            <input placeholder="Enter ur postal code" id="postalCode">
+            <br>
+            <br>
+            <button onclick="registerUser()" id="regBtn">Register</button>
+
+            <div id="res"></div>
         </div>
 
-        <div class="s2">
-            <input type="text" placeholder="Enter city" id="city">
-            <button onclick="searchWeatherByCity()" id="rame">Submit</button>
-        </div>
-    </div>
-    <div id="imageContainer"></div>
-    <script type="module" src="weatherApp.js"></script>
-</body>
+        <script src="./scripts/regPage.js"></script>
+    </body>
 </html>
