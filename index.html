@@ -1,84 +1,59 @@
-<html>
-    <head>
-        <style>
-            input {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        input:focus {
-            border-color: #007bff;
-            outline: none;
-        }
-
-        input::placeholder {
-            color: #aaa;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            width: 100px;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        button:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); 
-        }
-
-        div {
-            display: flex;
-            flex-direction: column;
-            width: 200px;
-            justify-content: center;
-            align-items: center;
-        }
-
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-
-        </style>
-    </head>
-    <body>
-        <div>
-            <input placeholder="Enter your username" id="username">
-            <br>
-            <br>
-            <input id="email" placeholder="Enter your email">
-            <br>
-            <br>
-            <input placeholder="Enter your password" id="password">
-            <br>
-            <br>
-            <input placeholder="Enter address" id="address">
-            <br>
-            <br>
-            <input placeholder="Enter ur phone number" id="phoneNumber">
-            <br>
-            <br>
-            <input placeholder="Enter ur postal code" id="postalCode">
-            <br>
-            <br>
-            <button onclick="registerUser()" id="regBtn">Register</button>
-
-            <div id="res"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration/Login Page</title>
+    <link rel="stylesheet" href="Styles/registrationPage.css">
+</head>
+<body>
+    <div class="form" id="registrationForm">
+        <div class="subtitle">Let's create your account!</div>
+        <div class="input-container ic1">
+            <input id="firstname" class="input" type="text" placeholder="">
+            <div class="cut"></div>
+            <label for="firstname" class="placeholder">First name</label>
         </div>
+        <div class="input-container ic2">
+            <input id="lastname" class="input" type="text" placeholder="">
+            <div class="cut"></div>
+            <label for="lastname" class="placeholder">Last name</label>
+        </div>
+        <div class="input-container ic2">
+            <input id="email" class="input" type="text" placeholder="">
+            <div class="cut cut-short"></div>
+            <label for="email" class="placeholder">Email</label>
+        </div>
+        <div class="input-container ic2">
+            <input id="password" class="input" type="password" placeholder="">
+            <div class="cut cut-short"></div>
+            <label for="password" class="placeholder">Enter Password</label>
+        </div>
+        <br>
+        <span class="sub">Already have an account? <a href="#" id="toLogin">Sign in</a></span>
+        <button type="text" class="submit" onclick="registrationSubmit()">Submit</button>
+        <div class="res"></div>
+    </div>
 
-        <script src="./scripts/regPage.js"></script>
-    </body>
+    
+    <div class="form" id="loginForm" style="display: none;">
+        <div class="subtitle">Welcome back!</div>
+        <div class="input-container ic1">
+            <input id="loginEmail" class="input" type="text" placeholder="">
+            <div class="cut"></div>
+            <label for="loginEmail" class="placeholder">Email</label>
+        </div>
+        <div class="input-container ic2">
+            <input id="loginPassword" class="input" type="password" placeholder="">
+            <div class="cut cut-short"></div>
+            <label for="loginPassword" class="placeholder">Password</label>
+        </div>
+        <br>
+        <span class="sub">Don't have an account? <a href="#" id="toRegister">Register</a></span>
+        <button type="text" class="submit" onclick="loginSubmit()">Login</button>
+        <div class="res1"></div>
+    </div>
+
+    <script src="script/registration.js"></script>
+</body>
 </html>
